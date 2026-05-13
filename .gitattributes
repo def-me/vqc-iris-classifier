@@ -1,0 +1,63 @@
+# Git attributes for consistent line endings and diff handling
+
+# Auto detect text files and normalize line endings to LF
+* text=auto
+
+# Python files
+*.py text eol=lf diff=python
+*.pyw text eol=lf diff=python
+*.pyx text eol=lf diff=python
+*.pyi text eol=lf diff=python
+
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Windows batch files
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Jupyter Notebooks
+*.ipynb text diff=json
+
+# Documentation
+*.md text eol=lf diff=markdown
+*.rst text eol=lf
+*.tex text eol=lf
+
+# YAML/TOML configuration
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+
+# JSON
+*.json text eol=lf diff=json
+*.lock text eol=lf
+
+# Docker
+Dockerfile text eol=lf
+docker-compose.yml text eol=lf
+
+# Makefile
+Makefile text eol=lf
+makefile text eol=lf
+
+# Binary files
+*.bin binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.gz binary
+*.zip binary
+*.7z binary
+*.ttf binary
+*.otf binary
+*.db binary
+*.sqlite binary

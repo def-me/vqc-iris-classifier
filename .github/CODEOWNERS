@@ -1,0 +1,24 @@
+# Code Owners - Automatically assign reviewers for PRs
+
+# Default owners for all files
+* @yourusername
+
+# Core algorithm and quantum code
+vqc_iris.py @yourusername
+
+# Tests
+tests/ @yourusername
+
+# Documentation
+*.md @yourusername
+docs/ @yourusername
+
+# CI/CD
+.github/ @yourusername
+Dockerfile @yourusername
+docker-compose.yml @yourusername
+
+# Configuration
+setup.py @yourusername
+pyproject.toml @yourusername
+requirements.txt @yourusername

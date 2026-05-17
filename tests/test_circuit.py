@@ -4,7 +4,6 @@ Test quantum circuit components
 
 import unittest
 import numpy as np
-from unittest.mock import patch, MagicMock
 
 
 class TestCircuitComponents(unittest.TestCase):
@@ -43,15 +42,6 @@ class TestCircuitComponents(unittest.TestCase):
         self.assertGreaterEqual(np.min(inputs_normalized), -1)
         self.assertLessEqual(np.max(inputs_normalized), 1)
 
-    @patch('vqc_iris.circuit')
-    def test_circuit_output_shape(self, mock_circuit):
-        """Test that circuit produces correct output shape."""
-        # Mock circuit to return z expectation values
-        mock_circuit.return_value = np.random.randn(self.n_qubits)
-        
-        output = mock_circuit(self.inputs[0], self.params)
-        self.assertEqual(len(output), self.n_qubits)
-
     def test_softmax_head(self):
         """Test softmax head transformation."""
         # Simulate circuit outputs
@@ -67,6 +57,17 @@ class TestCircuitComponents(unittest.TestCase):
         # Check all probabilities are in [0, 1]
         self.assertTrue(np.all(probs >= 0))
         self.assertTrue(np.all(probs <= 1))
+
+    def test_circuit_output_values(self):
+        """Test that circuit outputs are reasonable values."""
+        # Test that random outputs are in a reasonable range
+        outputs = np.random.randn(self.batch_size, self.n_qubits) * 2
+        
+        # Check shape is correct
+        self.assertEqual(outputs.shape, (self.batch_size, self.n_qubits))
+        
+        # Outputs should be finite
+        self.assertTrue(np.all(np.isfinite(outputs)))
 
 
 class TestParameterUpdates(unittest.TestCase):

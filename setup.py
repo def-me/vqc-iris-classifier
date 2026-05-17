@@ -3,9 +3,13 @@ Setup configuration for Variational Quantum Classifier
 """
 
 from setuptools import setup, find_packages
+import os
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
+
+# Get list of py_modules (single .py files in root)
+root_py_files = [f[:-3] for f in os.listdir('.') if f.endswith('.py') and f not in ['setup.py']]
 
 setup(
     name="vqc-iris-classifier",
@@ -15,8 +19,9 @@ setup(
     description="Variational Quantum Classifier for Iris Dataset using PennyLane",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/vqc-iris-classifier",
-    packages=find_packages(),
+    url="https://github.com/def-me/vqc-iris-classifier",
+    py_modules=root_py_files,
+    packages=find_packages(exclude=['tests', 'notebooks']),
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
@@ -34,9 +39,12 @@ setup(
         "numpy>=1.21.0",
         "scikit-learn>=1.0.0",
         "matplotlib>=3.4.0",
-        "pennylane>=0.28.0",
+        # PennyLane is optional - VQC has NumPy simulator fallback
     ],
     extras_require={
+        "quantum": [
+            "pennylane>=0.28.0",
+        ],
         "dev": [
             "pytest>=6.0",
             "pytest-cov>=2.12.0",

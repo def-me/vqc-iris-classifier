@@ -1,4 +1,6 @@
 numpy>=1.21.0
 scikit-learn>=1.0.0
 matplotlib>=3.4.0
-pennylane>=0.28.0
+# PennyLane is optional - VQC works with NumPy simulator fallback
+# Uncomment below to use PennyLane for quantum simulation:
+# pennylane>=0.28.0

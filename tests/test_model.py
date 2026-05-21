@@ -4,7 +4,6 @@ Test model training and evaluation
 
 import unittest
 import numpy as np
-from unittest.mock import patch, MagicMock
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 
@@ -88,18 +87,16 @@ class TestGradientComputation(unittest.TestCase):
 
     def test_gradient_magnitude(self):
         """Test that gradients are small for finite differences."""
-        n_layers = 3
-        n_qubits = 4
         delta = 1e-5
         
-        # Simulated finite difference gradients
-        loss_minus = np.random.randn()
-        loss_plus = np.random.randn()
+        # Simulated finite difference gradients with a controlled difference
+        loss_minus = 0.10000
+        loss_plus = 0.10001
         gradient = (loss_plus - loss_minus) / delta
         
-        # Gradient magnitude should be reasonable
-        self.assertGreater(abs(gradient), -1000)
-        self.assertLess(abs(gradient), 1000)
+        # Gradient magnitude should be reasonable and finite
+        self.assertAlmostEqual(gradient, 1.0)
+        self.assertTrue(np.isfinite(gradient))
 
 
 class TestPredictions(unittest.TestCase):

@@ -40,11 +40,13 @@ classifiers = [
 dependencies = [
     "numpy>=1.21.0",
     "scikit-learn>=1.0.0",
-    "matplotlib>=3.4.0",
-    "pennylane>=0.28.0"
+    "matplotlib>=3.4.0"
 ]
 
 [project.optional-dependencies]
+quantum = [
+    "pennylane>=0.28.0"
+]
 dev = [
     "pytest>=6.0",
     "pytest-cov>=2.12.0",

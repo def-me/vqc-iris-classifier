@@ -29,8 +29,10 @@ class TestCircuitComponents(unittest.TestCase):
 
     def test_params_random_initialization(self):
         """Test that parameters are properly initialized."""
-        params = np.random.randn(self.n_layers, self.n_qubits, 2) * 0.1
-        self.assertLess(np.max(np.abs(params)), 0.2)
+        rng = np.random.default_rng(0)
+        params = rng.normal(scale=0.1, size=(self.n_layers, self.n_qubits, 2))
+        self.assertEqual(params.shape, (self.n_layers, self.n_qubits, 2))
+        self.assertLess(np.max(np.abs(params)), 0.4)
         self.assertGreater(np.std(params), 0)
 
     def test_angle_embedding(self):

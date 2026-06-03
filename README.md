@@ -285,10 +285,10 @@ If you use this project in your research, please cite:
 
 ```bibtex
 @software{vqc_iris_2024,
-  author = {Your Name},
+  author = {Ravada Omkar},
   title = {Variational Quantum Classifier for Iris Dataset},
   year = {2024},
-  url = {https://github.com/yourusername/vqc-iris-classifier}
+  url = {https://github.com/def-me/vqc-iris-classifier}
 }
 ```
 
@@ -321,5 +321,3 @@ If you use this project in your research, please cite:
 - ✅ Full documentation
 
 ---
-
-**Happy Quantum Computing! 🚀**

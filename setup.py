@@ -14,8 +14,8 @@ root_py_files = [f[:-3] for f in os.listdir('.') if f.endswith('.py') and f not 
 setup(
     name="vqc-iris-classifier",
     version="1.0.0",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Ravada Omkar",
+    author_email="omkar15.ravada@gmail.com",
     description="Variational Quantum Classifier for Iris Dataset using PennyLane",
     long_description=long_description,
     long_description_content_type="text/markdown",

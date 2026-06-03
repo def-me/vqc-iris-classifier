@@ -4,14 +4,10 @@ This project is made possible by the following contributors:
 
 ## Core Team
 
-- **Your Name** ([@username](https://github.com/username)) - Project Lead
+- **Ravada Omkar** ([@def-me](https://github.com/def-me)) - Project Lead
   - Quantum circuit architecture and implementation
   - PennyLane integration
   - Model training and optimization
-
-## Contributors
-
-Thank you to everyone who has contributed to this project!
 
 - Submit a Pull Request to be added here!
 
